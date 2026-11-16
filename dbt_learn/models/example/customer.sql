@@ -7,4 +7,4 @@ with source_data as (
 )
 select C_CUSTKEY
 from source_data
-WHERE C_CUSTKEY = 270001
+WHERE C_CUSTKEY = 270001 
