@@ -1,0 +1,36 @@
+
+version: 2
+
+models:
+  - name: my_first_dbt_model
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+
+  - name: my_second_dbt_model
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+
+sources:
+  - name: jaffle_shop
+    description: Raw data for the jaffle shop application.
+    database: SNOWFLAKE_SAMPLE_DATA       # Optional depending on your warehouse
+    schema: TPCH_SF10         # The schema where the raw table lives
+    tables:
+      - name: CUSTOMER
+        description: Raw orders table containing transaction records.
+        columns:
+          - name: C_CUSTKEY
+            tests:
+              - unique
+              - not_null
+          - name: C_NAME
